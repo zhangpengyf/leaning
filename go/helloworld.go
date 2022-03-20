@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 func main() {
 	//fmt.Println("Hello, World!")
@@ -9,4 +12,11 @@ func main() {
 	var url = "Code=%d&endDate=%s"
 	var target_url = fmt.Sprintf(url, stockcode, enddate)
 	fmt.Println(target_url)
+
+	const (
+		a = "abc"
+		b = len(a)
+		c = unsafe.Sizeof(a)
+	)
+	println(a, b, c)
 }
