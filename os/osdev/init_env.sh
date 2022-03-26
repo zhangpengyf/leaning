@@ -1,5 +1,5 @@
 echo "install software"
-sudo apt install zsh emacs openssh-server build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo libisl-dev -y
+sudo apt install zsh emacs openssh-server build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo libisl-dev xorriso grub2 qemu qemu-system-x86 -y
 
 # 也可以直接在浏览器下载
 rm -rf binutils-2.30
