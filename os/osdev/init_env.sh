@@ -1,4 +1,4 @@
-
+echo "install software"
 sudo apt install zsh emacs openssh-server build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo libisl-dev -y
 
 # 也可以直接在浏览器下载
@@ -9,17 +9,20 @@ rm -rf gcc-7.3.0
 tar -xvJf binutils-2.30.tar.xz
 tar -xvJf gcc-7.3.0.tar.xz
 
+echo "instal gcc prerequisites"
 cd gcc-7.3.0
 # 该命令会从国外网站下载相关依赖，若无法下载请自行解决网络问题
 ./contrib/download_prerequisites
 cd ..
 
+echo "install dir $HOME/opt/cross" 
 export PREFIX="$HOME/opt/cross"
 export TARGET=i686-elf
 export PATH="$PREFIX/bin:$PATH"
 
 mkdir $HOME/src
 
+echo "build binutils"
 cd $HOME/src 
 mkdir build-binutils
 cd build-binutils
@@ -31,7 +34,8 @@ cd $HOME/src
  
 # The $PREFIX/bin dir _must_ be in the PATH. We did that above.
 which -- $TARGET-as || echo $TARGET-as is not in the PATH
- 
+
+echo "build-gcc"
 mkdir build-gcc
 cd build-gcc
 ../gcc-x.y.z/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c,c++ --without-headers
