@@ -1,4 +1,5 @@
 #build os
+./build.sh
 ./grub.sh
 
 #quit use ESC + 2 then q + ENTER
